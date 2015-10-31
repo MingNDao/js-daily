@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="../../Js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+<div id="a">
+  <span>aaa</span>
+</div>
+<script>
+function b(){
+alert('b');
+}
+function c(){
+alert('c');
+}
+a=document.getElementById('a');
+a.onclick=function(){b();}
+a.onclick=null;
+</script>
+</body>
+</html>

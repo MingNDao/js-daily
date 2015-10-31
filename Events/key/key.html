@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=2.0">
+<title>键盘事件</title>
+<style>
+p{word-wrap:break-word} 
+#co{width:50px;height:50px; position:absolute;background:#ccc; top:100px;left:100px;}
+</style>
+</head>
+
+<body>
+
+<script>
+key={left:65,down:83,right:68,up:87}
+d=new player([50,50],1000/600);
+ window.addEventListener('keyup',function(e){
+  switch(e.keyCode){
+     case key.left:d.moveLeft();break;
+	 case key.down:d.moveDown();break;
+	 case key.right:d.moveRight();break;
+	 case key.up:d.moveUp();break;
+  }
+ },false)
+function player(p,speed){
+	this.xx=document.createElement('div');
+	this.xx.id="co";
+	
+	xx=this.xx;
+	
+	xx.style.left=p[0]+"px";
+	xx.style.top=p[1]+"px";
+	document.body.appendChild(this.xx);
+	this.moveLeft=function(){
+		left=parseFloat(xx.style.left);
+		for(i=0;i<50;i+=2){
+		setTimeout(function(){left-=2;xx.style.left=left+"px"},speed*i);
+		}
+	}
+	this.moveDown=function(){
+	    top0=parseFloat(xx.style.top);
+		top0+=50;
+		xx.style.top=top0+"px";
+	}
+	this.moveRight=function(){
+	   left=parseFloat(xx.style.left);
+	   left+=50;
+	   xx.style.left=left+"px"
+	}
+	this.moveUp=function(){
+	   top0=parseFloat(xx.style.top);
+	   top0-=50;
+	   xx.style.top=top0+"px";	
+	}
+	function animate(){}
+}
+
+</script>
+</body>
+</html>

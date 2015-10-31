@@ -1,0 +1,18 @@
+/* Scss Document */
+@mixin left{
+  float:left;
+}
+nav {
+  ul {
+	@include left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block;
+    a{color:#ccc;}
+	ul{ position:absolute;}
+   }
+
+}

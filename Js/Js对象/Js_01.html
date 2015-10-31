@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Js对象</title>
+</head>
+
+<body>
+<script>
+player=function (name,power){
+  this.name=name,this.power=power;
+  this.say =function(txt){
+    document.write(this.name+"说："+txt);
+  }
+}
+player01=new player('逐云',5);//创建一个名为逐云，战斗力5的玩家 对象
+player01.say('Hello,World!');//
+</script>
+<article> 
+  <code>
+  player=function (name,power){<br>
+    this.name=name,this.power=power;<br>
+    this.say =function(txt){<br>
+      document.write(this.name+"说："+txt);<br>
+    }<br>
+  }<br>
+  player01=new player('逐云',5);//创建一个名为逐云，战斗力5的玩家 对象<br>
+  player01.say('Hello,World!');//逐云 说 Hello,World<br>
+</code>
+</article>
+</body>
+</html>

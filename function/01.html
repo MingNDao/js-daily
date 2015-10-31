@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型测试</title>
+    <style>span{border:solid 1px #ccc;width:1.5em;display:inline-block;line-height:1.5em;}
+    p{}
+	.div{}
+	.n{border:solid 1px #ccc; position:absolute;top:0px;-webkit-transition:all 2s ease-in;}
+	.n.on{bottom:0px;height:100px;width:100px;}
+    </style>
+    <script src="/Js/jquery-1.9.1.min.js"></script>
+    
+</head>
+<body>
+<canvas id="map"></canvas>
+<script>
+maxHeight = window.innerHeight;
+maxWidth = window.innerWidth;
+
+map = document.getElementById('map');
+mc = map.getContext("2d");
+map.width = maxWidth;
+map.height = maxHeight;
+
+function createN(name){
+	var x = document.createElement('div');
+	x.id  = name;
+	x.className = "n";
+	document.body.appendChild(x);
+	size = parseInt(Math.random()*500);
+	x.style.height = size+"px",x.style.width = size+"px";
+	console.log(maxHeight+"/"+x.style.top+"/"+x.style.height);
+    setTimeout(function(){x.style.top = maxHeight-10-size+"px"},100);
+}  
+$('html').click(function(){
+  var i =parseInt(Math.random()*100);
+  console.log(i);
+  createN("p"+i);
+});
+</script>
+</body>
+</html>
