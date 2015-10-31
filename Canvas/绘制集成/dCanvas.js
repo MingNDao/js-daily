@@ -82,7 +82,7 @@ function dCanvas(id,width,height){
 	this.animate = function(e){}
 	return this;
   }
-  
+  /*杜方宇*/
   //创建圆圈
   this.circle = function(p,r){
 	  //jr,jd Math.Pi
