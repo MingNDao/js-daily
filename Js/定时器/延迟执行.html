@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>延迟执行</title>
+</head>
+<style>
+	*{margin:0;padding: 0;}
+	ul,li{list-style: none;}
+	#box1,#box2{float: left;margin-left: 50px;}
+	#box1{width: 100px;height: 100px;background: #ccc;}
+	#box2{width: 300px;height: 300px;background: #f00;display: none;}	
+</style>
+<body>
+	<script>
+	//主要用到 setTimeout()与clearTimeout()方法  
+	window.onload=function(){
+		var box1=document.getElementById("box1");
+		var box2=document.getElementById("box2");
+		var timer="";
+
+		box2.onmouseover=box1.onmouseover=function(){
+			clearTimeout(timer);
+			timer=setTimeout(function(){
+				box2.style.display="block";
+			},300)
+		}
+		box1.onmouseout=box2.onmouseout=function(){
+			timer=setTimeout(function(){
+				box2.style.display="none";
+			},300);				
+		}
+		
+	}
+	</script>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+</html>

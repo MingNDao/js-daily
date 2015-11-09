@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定时器</title>
+</head>
+<style>
+	*{margin:0;padding: 0;}
+	ul,li{list-style: none;}
+	
+</style>
+<body>
+	<script type="text/javascript">
+	// str[i] 只兼容高版本浏览器 不兼容IE7.8
+	/*var str="我爱javascript";
+	for(var i=0;i<str.length;i++){
+		alert(str[i]);  
+	}*/
+	
+	//为了解决兼容性问题，可以用str.charAt(i)，既：
+	/*var str="我爱javascript";
+	for(var i=0;i<str.length;i++){
+		alert(str.charAt(i));  
+	}*/
+
+	//当前时间
+	window.onload=function(){
+		//空位补0，既时间格式为：00:00:00
+		function toDou(t){
+			if(t<10){
+				return "0"+t;
+			}else{
+				return ""+t;
+			}
+		}
+		function time(){
+			var oDate=new Date();
+			var str = toDou(oDate.getFullYear())+"/"+toDou((oDate.getMonth()+1))+"/"+toDou(oDate.getDate())+" "+toDou(oDate.getHours())+":"+toDou(oDate.getMinutes())+":"+toDou(oDate.getSeconds());
+			var oDiv=document.getElementById("time");
+			//oDiv.innerHTML="现在时间："+str+"<br>";
+			var oLi=oDiv.getElementsByTagName("li");
+			
+			for(var i=0;i<str.length;i++){
+				oLi[i].innerHTML=str.charAt(i);
+			}
+		}
+		setInterval(time,1000);
+		time();
+		}
+		
+	</script>
+
+	<div id="time">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

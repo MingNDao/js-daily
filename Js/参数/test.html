@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<style>
+	#box{}
+</style>
+<body>
+	<div id="box" style="width: 100px;height: 100px;background: #f00;"></div>
+	<script type="text/javascript">
+	//arguments  ：相当于一个数组
+	function css(){
+		if(arguments.length==2){
+			return arguments[0].style[arguments[1]];  //当参数个数为2个的时候==>获取样式
+		}else{
+			return arguments[0].style[arguments[1]]=arguments[2];  //当参数个数为3个的时候==>设置样式
+		}
+	}
+	//上面的方法可写成：
+	function css(obj,name,num){
+		if(arguments.length==2){
+			return obj.style[name];  //获取样式
+		}else{
+			return obj.style[name]=num;  //设置样式
+		}
+	}
+	var box=document.getElementById("box");
+	alert(css(box,"width","200px"));
+	</script>
+</body>
+</html>

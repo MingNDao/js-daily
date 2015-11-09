@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动</title>
+</head>
+<style>
+	*{padding: 0;margin: 0;}
+	ul,li{list-style: none;}
+	#box{width: 1400px;height: 300px;overflow: hidden;position: absolute;top:100px;left: 110px;}
+	#box ul{position: absolute;top:0;left: 0;}
+	#box ul li{float:left;width: 330px;height: 300px;margin: 0 10px;}
+</style>
+<body>
+	<a href="javascript:" id="leftLoop">左</a> <a href="javascript:" id="rightLoop">右</a>
+	<div id="box">
+		<ul>
+			<li><img src="Images/04.png" alt=""></li>
+			<li><img src="Images/05.png" alt=""></li>
+			<li><img src="Images/06.png" alt=""></li>
+			<li><img src="Images/07.png" alt=""></li>
+		</ul>
+	</div>
+	<script>
+	window.onload=function(){
+		var box=document.getElementById("box");
+		var oUl=box.getElementsByTagName("ul")[0];
+		var oLi=oUl.getElementsByTagName("li");
+		var leftLoop=document.getElementById("leftLoop");
+		var rightLoop=document.getElementById("rightLoop");
+		var speed=2;  //设置速度
+		var timer="";  //设置
+		oUl.innerHTML+=oUl.innerHTML; //复制一份li做到循环滚动		
+		oUl.style.width=(oLi[0].offsetWidth+20)*oLi.length+"px"; //	设置ul宽度 以足够放置li					
+		function slide(){						
+			if(oUl.offsetLeft<-(oUl.offsetWidth/2)){
+				oUl.style.left=0;
+			}else if(oUl.offsetLeft>0){
+				oUl.style.left=-oUl.offsetWidth/2+"px";
+			}else{
+				oUl.style.left=oUl.offsetLeft+speed+"px";
+			}
+		}		
+		timer=setInterval(slide, 30);
+		box.onmouseover=function(){
+			clearInterval(timer);
+		}
+		box.onmouseout=function(){
+			timer=setInterval(slide, 30);
+		}
+		leftLoop.onclick=function(){
+			speed=-2;
+			}
+		rightLoop.onclick=function(){
+			speed=2;
+		}		
+	}
+	
+	
+	</script>
+</body>
+</html>
