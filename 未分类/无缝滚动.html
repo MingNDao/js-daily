@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无缝滚动</title>
+<script src="/Js/jquery-1.9.1.min.js"></script>
+<style>
+  .bd li{float:left;width:300px;margin-left:30px;height:200px;line-height: 200px;font-size:72px;font-weight:bold;
+  list-style:none;
+  }
+</style>
+</head>
+
+<body>
+    <div class="d">
+        <div class="bd"><ul>
+        	<li>1</li>
+        	<li>2</li>
+        	<li>3</li>
+        	<li>4</li>
+        	<li>5</li>
+        </ul></div>
+    </div>
+<script>
+$.fn.d=function(){
+    bdli=$(this).find('.bd').find('li')
+	li_length = bdli.length;
+    li_width = bdli.width();
+	$(this).find('.bd').find('li').parent().css('width',li_length*li_width);
+}
+$('.d').d();
+</script>
+</body>
+</html>
